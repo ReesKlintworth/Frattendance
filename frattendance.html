@@ -1,14 +1,24 @@
-<head>
-  <title>frattendance</title>
-</head>
+<template name="main">
+  <h1>Frattendance</h1>
+  {{> navigation}}
+  {{> yield}}
+  <hr/>
+  <p> Copyright &copy; Rees Klintworth, 2015. </p>
+</template>
 
-<body>
-  <h1>Welcome to Meteor!</h1>
+<template name="navigation">
+  <ul>
+    <li><a href="{{pathFor route='home'}}">Home</a></li>
+    <li><a href="{{pathFor route='manage'}}">Manage</a></li>
+  </ul>
+</template>
 
-  {{> hello}}
-</body>
+<template name="home">
+  <h2>Welcome Home!</h2>
+  <p>You're on the home page!</p>
+</template>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="manage">
+  <h2>Welcome to Manage!</h2>
+  <p>You're on the manage page!</p>
 </template>
