@@ -8,3 +8,5 @@ Router.route('/', {
 });
 
 Router.route('/manage');
+
+Router.route('/login');
