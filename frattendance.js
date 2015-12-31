@@ -1,3 +1,5 @@
+Members = new Mongo.Collection("members");
+
 Router.configure({
   layoutTemplate: 'main'
 });

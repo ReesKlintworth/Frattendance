@@ -1,3 +1,5 @@
+Meteor.subscribe("members");
+
 Template.register.events({
   'submit form': function(){
     event.preventDefault();
