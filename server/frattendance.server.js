@@ -1,4 +1,4 @@
-Meteor.Meteor.publish("members", function(){
+Meteor.publish("members", function(){
   return Members.find();
 });
 
