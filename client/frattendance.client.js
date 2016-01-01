@@ -1,4 +1,5 @@
 Meteor.subscribe("members");
+Meteor.subscribe("meetings");
 
 Template.register.events({
   'submit form': function(){
