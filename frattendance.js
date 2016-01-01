@@ -13,3 +13,12 @@ Router.route('/', {
 Router.route('/manage');
 
 Router.route('/login');
+
+Meteor.methods({
+  addMember:function(first, last){
+    Members.insert({
+      first: first,
+      last: last
+    });
+  }
+});

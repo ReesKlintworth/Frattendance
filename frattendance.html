@@ -21,13 +21,22 @@
   </ul>
 </template>
 
-<template name="register">
-  <h2>Register</h2>
+<template name="registerAdmin">
+  <h2>Register a new admin</h2>
   <form class="register">
-    <p>First name: <input type="text" name="first"></p>
-    <p>Last name: <input type="text" name="last"></p>
+    <p>First name: <input type="text" name="firstAdmin"></p>
+    <p>Last name: <input type="text" name="lastAdmin"></p>
     <p>Email: <input type="email" name="email"></p>
     <p>Password: <input type="password" name="password"></p>
+    <p><input type="submit" value="Register"></p>
+  </form>
+</template>
+
+<template name="registerMember">
+  <h2>Register a new member</h2>
+  <form class="register">
+    <p>First name: <input type="text" name="firstMember"></p>
+    <p>Last name: <input type="text" name="lastMember"></p>
     <p><input type="submit" value="Register"></p>
   </form>
 </template>
@@ -39,8 +48,17 @@
 
 <template name="manage">
   <h2>Welcome to Manage!</h2>
-  <p>You're on the manage page!</p>
-  {{> register}}
+  {{> registerAdmin}}
+  {{> registerMember}}
+  {{> roster}}
+</template>
+
+<template name="roster">
+  <ul>
+  {{#each member}}
+    <li>{{first}} {{last}}</li>
+  {{/each}}
+  </ul>
 </template>
 
 <template name="login">

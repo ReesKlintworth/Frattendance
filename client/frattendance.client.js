@@ -1,11 +1,11 @@
 Meteor.subscribe("members");
 Meteor.subscribe("meetings");
 
-Template.register.events({
+Template.registerAdmin.events({
   'submit form': function(){
     event.preventDefault();
-    var first = $('[name=first]').val();
-    var last = $('[name=last]').val();
+    var first = $('[name=firstAdmin]').val();
+    var last = $('[name=lastAdmin]').val();
     var email = $('[name=email]').val();
     var password = $('[name=password]').val();
     var username = (first + "." + last).toLowerCase();
@@ -15,6 +15,15 @@ Template.register.events({
        email: email,
        password: password
     });
+  }
+});
+
+Template.registerMember.events({
+  'submit form': function(){
+    event.preventDefault();
+    var first = $('[name=firstMember]').val();
+    var last = $('[name=lastMember]').val();
+    Meteor.call("addMember", first, last);
   }
 });
 
@@ -33,5 +42,12 @@ Template.login.events({
     var password = $('[name=password]').val();
     Meteor.loginWithPassword(username, password);
     Router.go('home');
+  }
+});
+
+
+Template.roster.helpers({
+  'member': function(){
+    return Members.find();
   }
 });
