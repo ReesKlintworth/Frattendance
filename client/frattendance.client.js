@@ -23,7 +23,8 @@ Template.registerMember.events({
     event.preventDefault();
     var first = $('[name=firstMember]').val();
     var last = $('[name=lastMember]').val();
-    Meteor.call("addMember", first, last);
+    var active = $('[name=active]:checked').val();
+    Meteor.call("addMember", first, last, active);
   }
 });
 
@@ -49,5 +50,9 @@ Template.login.events({
 Template.roster.helpers({
   'member': function(){
     return Members.find();
+  },
+
+  'isActive': function(){
+    return this.active === "true";
   }
 });

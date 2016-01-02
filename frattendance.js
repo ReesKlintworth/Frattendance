@@ -15,10 +15,11 @@ Router.route('/manage');
 Router.route('/login');
 
 Meteor.methods({
-  addMember:function(first, last){
+  addMember:function(first, last, active){
     Members.insert({
       first: first,
-      last: last
+      last: last,
+      active: active
     });
   }
 });

@@ -37,6 +37,11 @@
   <form class="register">
     <p>First name: <input type="text" name="firstMember"></p>
     <p>Last name: <input type="text" name="lastMember"></p>
+    <p>
+      Active status:
+      <input type="radio" name="active" value="true" checked>Active
+      <input type="radio" name="active" value="false">Pledge
+    </p>
     <p><input type="submit" value="Register"></p>
   </form>
 </template>
@@ -56,7 +61,11 @@
 <template name="roster">
   <ul>
   {{#each member}}
-    <li>{{first}} {{last}}</li>
+    {{#if isActive}}
+      <li><b>{{first}} {{last}}</b></li>
+    {{else}}
+      <li>{{first}} {{last}}</li>
+    {{/if}}
   {{/each}}
   </ul>
 </template>
