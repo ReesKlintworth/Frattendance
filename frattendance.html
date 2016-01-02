@@ -1,32 +1,32 @@
 <template name="main">
   <div id="container">
-    <section id="menu">
+    <div id="menu">
       {{> navigation}}
-    </section>
-
+    </div>
     <div id="content-container">
-      <h1>Frattendance</h1>
       {{#if currentUser}}
         <p>Welcome, {{currentUser.username}}</p>
       {{/if}}
       {{> yield}}
     </div>
+    <div id="push"></div>
   </div>
-
-  {{> footer}}
-
+  <div id="footer">
+    <hr/>
+    <p> Copyright &copy; Rees Klintworth, 2016. </p>
+  </div>
 </template>
 
 <template name="navigation">
-  <ul>
-    <li><a href="{{pathFor route='home'}}">Home</a></li>
-    <li><a href="{{pathFor route='manage'}}">Manage</a></li>
+  <div class="btn-group">
+    <a href="{{pathFor route='home'}}" class="btn-menu">Home</a>
+    <a href="{{pathFor route='manage'}}" class="btn-menu">Manage</a>
     {{#if currentUser}}
-      <li><a href="#" class="logout">Logout</a></li>
+      <a href="#" class="logout btn-menu">Logout</a>
     {{else}}
-      <li><a href="{{pathFor route='login'}}">Login</a></li>
+      <a href="{{pathFor route='login'}}" class="btn-menu">Login</a>
     {{/if}}
-  </ul>
+  </div>
 </template>
 
 <template name="registerAdmin">
@@ -76,15 +76,6 @@
     {{/if}}
   {{/each}}
   </ul>
-</template>
-
-<template name="login">
-  <h2>Login</h2>
-  <form class="login">
-    <p>Email or Username (first.last): <input type="text" name="username"></p>
-    <p>Password: <input type="password" name="password"></p>
-    <p><input type="submit" value="Login"></p>
-  </form>
 </template>
 
 <template name="footer">

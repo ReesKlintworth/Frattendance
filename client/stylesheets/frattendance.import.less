@@ -1,4 +1,6 @@
 @menu-width: 300px;
+@column: 5.55555%;
+@footerHeight: 4em;
 
 body {
   background-color: #9D1020;
@@ -7,27 +9,85 @@ body {
   background-attachment: fixed;
 }
 
+html, body {
+  height: 100%;
+}
+
 #container {
-  // .position(absolute, 0, 0, 0, 0);
+  position: absolute;
   top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  left: 2*@column;
+  right: 2*@column;
+  bottom: -@footerHeight;
+  min-height: 100%;
 }
 
 #menu {
+  position: absolute;
   width: @menu-width;
-  float:left;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 #content-container {
-  float: left;
-  // Height of footer = 36, border around body = 8
-  min-height: calc(~"100vh - 52px");
+  position: absolute;
+  top: 0;
+  left: @menu-width;
+  right: 0;
+  bottom: 0;
 }
 
-.footer {
-  clear: both;
+#footer {
+  position: absolute;
   width: 100%;
   bottom: 0px;
+}
+
+#footer, #push {
+  height: @footerHeight;
+}
+
+#push {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+}
+
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+
+}
+
+.btn-menu {
+  box-shadow: lighten(#517096, 5%) 0 0 0 1px inset;
+  font-size: 14px;
+  line-height: 20px;
+  color: white;
+  .title-caps;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  text-decoration: none !important; //prevents global <a> styles from applying
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.auth.form {
+  text-align: center;
+
+  .wrapper-auth {
+    padding-top: 4em;
+  }
+
+  .title-auth {
+    font-size: 40px;
+    line-height: 48px;
+    font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+  }
 }
