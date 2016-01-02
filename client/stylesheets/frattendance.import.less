@@ -3,6 +3,7 @@
 @footerHeight: 4em;
 
 body {
+  .position(relative, 0, 0, 0, 0);
   background-color: #9D1020;
   .background-image( linear-gradient(top, #9D1020, #918e82 100%) );
   background-repeat: no-repeat;
@@ -14,45 +15,25 @@ html, body {
 }
 
 #container {
-  position: relative;
-  top: 0;
-  left: 2*@column;
-  right: 2*@column;
-  bottom: -@footerHeight;
   min-height: 100%;
+  margin-top: 0;
+  margin-left: 2*@column;
+  margin-right: 2*@column;
+  margin-bottom: -@footerHeight;
 }
 
 #menu {
-  position: relative;
   width: @menu-width;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  float: left;
 }
 
 #content-container {
-  position: relative;
-  top: 0;
-  left: @menu-width;
-  right: 0;
-  bottom: 0;
-}
-
-#footer {
-  width: 100%;
-  bottom: @footerHeight;
+  float:left;
 }
 
 #footer, #push {
-  position: relative;
+  clear: both;
   height: @footerHeight;
-}
-
-#push {
-  bottom: 0px;
-  left: 0px;
-  width: 100%;
 }
 
 .btn-group {
