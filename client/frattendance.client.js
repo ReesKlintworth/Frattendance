@@ -9,12 +9,7 @@ Template.registerAdmin.events({
     var email = $('[name=email]').val();
     var password = $('[name=password]').val();
     var username = (first + "." + last).toLowerCase();
-
-    Accounts.createUser({
-       username: username,
-       email: email,
-       password: password
-    });
+    Meteor.call("addUser", username, email, password);
   }
 });
 

@@ -21,5 +21,13 @@ Meteor.methods({
       last: last,
       active: active
     });
+  },
+
+  addUser:function(username, email, password){
+    Accounts.createUser({
+       username: username,
+       email: email,
+       password: password
+    });
   }
 });
