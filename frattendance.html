@@ -1,12 +1,20 @@
 <template name="main">
-  <h1>Frattendance</h1>
-  {{#if currentUser}}
-    <p>Welcome, {{currentUser.username}}</p>
-  {{/if}}
-  {{> navigation}}
-  {{> yield}}
-  <hr/>
-  <p> Copyright &copy; Rees Klintworth, 2015. </p>
+  <div id="container">
+    <section id="menu">
+      {{> navigation}}
+    </section>
+
+    <div id="content-container">
+      <h1>Frattendance</h1>
+      {{#if currentUser}}
+        <p>Welcome, {{currentUser.username}}</p>
+      {{/if}}
+      {{> yield}}
+    </div>
+  </div>
+
+  {{> footer}}
+
 </template>
 
 <template name="navigation">
@@ -77,4 +85,11 @@
     <p>Password: <input type="password" name="password"></p>
     <p><input type="submit" value="Login"></p>
   </form>
+</template>
+
+<template name="footer">
+  <div class="footer">
+    <hr/>
+    <p> Copyright &copy; Rees Klintworth, 2015. </p>
+  </div>
 </template>
