@@ -2,6 +2,7 @@
   <div id="container">
     <div id="menu">
       {{> navigation}}
+      {{> meetingList}}
     </div>
     <div id="content-container">
       {{#if currentUser}}
@@ -83,4 +84,12 @@
     <hr/>
     <p> Copyright &copy; Rees Klintworth, 2015. </p>
   </div>
+</template>
+
+<template name="meetingList">
+  <ul>
+  {{#each meeting}}
+    <li><a href="#">Meeting</a></li>
+  {{/each}}
+  </ul>
 </template>

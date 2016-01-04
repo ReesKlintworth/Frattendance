@@ -51,3 +51,9 @@ Template.roster.helpers({
     return this.active === "true";
   }
 });
+
+Template.meetingList.helpers({
+  'meeting': function(){
+    return Meetings.find();
+  }
+});
