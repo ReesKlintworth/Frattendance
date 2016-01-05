@@ -33,7 +33,7 @@ Meteor.methods({
 
   addMeeting:function(date){
     Meetings.insert({
-      date: date
+      date: moment(date).toDate()
     });
   }
 });
