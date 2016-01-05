@@ -23,6 +23,14 @@ Template.registerMember.events({
   }
 });
 
+Template.createMeeting.events({
+  'submit form': function(){
+    event.preventDefault();
+    var date = $('[name=date]').val();
+    Meteor.call("addMeeting", date);
+  }
+});
+
 Template.navigation.events({
   'click .logout': function(){
     event.preventDefault();

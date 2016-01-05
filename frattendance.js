@@ -29,5 +29,11 @@ Meteor.methods({
        email: email,
        password: password
     });
+  },
+
+  addMeeting:function(date){
+    Meetings.insert({
+      date: date
+    });
   }
 });

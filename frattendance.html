@@ -55,6 +55,14 @@
   </form>
 </template>
 
+<template name="createMeeting">
+  <h2>Create a new meeting.</h2>
+  <form class="create">
+    <p>Meeting date: <input type="date" name="date"></p>
+    <p><input type="submit" value="Create"></p>
+  </form>
+</template>
+
 <template name="home">
   <h2>Welcome Home!</h2>
   <p>You're on the home page!</p>
@@ -65,6 +73,8 @@
   {{> registerAdmin}}
   {{> registerMember}}
   {{> roster}}
+  {{> createMeeting}}
+  {{> meetingList}}
 </template>
 
 <template name="roster">
@@ -89,7 +99,7 @@
 <template name="meetingList">
   <ul>
   {{#each meeting}}
-    <li><a href="#">Meeting</a></li>
+    <li><a href="#">{{date}}</a></li>
   {{/each}}
   </ul>
 </template>
