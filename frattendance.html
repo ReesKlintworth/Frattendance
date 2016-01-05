@@ -99,7 +99,11 @@
 <template name="meetingList">
   <ul>
   {{#each meeting}}
-    <li><a href="#">{{formattedDate}}</a></li>
+    <li><a href="/meeting/{{_id}}">{{formattedDate}}</a></li>
   {{/each}}
   </ul>
+</template>
+
+<template name="meeting">
+  <p>{{_id}}</p>
 </template>

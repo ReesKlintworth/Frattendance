@@ -15,6 +15,14 @@ Router.route('/manage');
 
 Router.route('/login');
 
+Router.route('/meeting/:_id', {
+  template: 'meeting',
+  data: function() {
+    var currentMeeting = this.params._id;
+    return Meetings.findOne({_id: currentMeeting});
+  }
+});
+
 Meteor.methods({
   addMember:function(first, last, active){
     Members.insert({
