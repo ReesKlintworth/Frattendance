@@ -1,5 +1,6 @@
 Meteor.subscribe("members");
 Meteor.subscribe("meetings");
+Meteor.subscribe("meetingAttendance");
 
 Template.registerAdmin.events({
   'submit form': function(){

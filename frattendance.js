@@ -1,5 +1,6 @@
 Members = new Mongo.Collection("members");
 Meetings = new Mongo.Collection("meetings");
+MeetingAttendance = new Mongo.Collection("meetingAttendance");
 
 Router.configure({
   layoutTemplate: 'main'
