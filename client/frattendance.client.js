@@ -63,5 +63,9 @@ Template.roster.helpers({
 Template.meetingList.helpers({
   'meeting': function(){
     return Meetings.find();
+  },
+
+  'formattedDate': function(){
+    return moment(this.date).format("MMMM Do, YYYY");
   }
 });
