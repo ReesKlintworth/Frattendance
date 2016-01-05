@@ -11,6 +11,10 @@ Template.registerAdmin.events({
     var password = $('[name=password]').val();
     var username = (first + "." + last).toLowerCase();
     Meteor.call("addUser", username, email, password);
+    $('[name=firstAdmin]').val('');
+    $('[name=lastAdmin]').val('');
+    $('[name=email]').val('');
+    $('[name=password]').val('');
   }
 });
 
@@ -21,6 +25,10 @@ Template.registerMember.events({
     var last = $('[name=lastMember]').val();
     var active = $('[name=active]:checked').val();
     Meteor.call("addMember", first, last, active);
+    $('[name=firstMember]').val('');
+    $('[name=lastMember]').val('');
+    $('#radio_active').prop('checked', true);
+    $('#radio_pledge').removeAttr('checked');
   }
 });
 
@@ -29,6 +37,7 @@ Template.createMeeting.events({
     event.preventDefault();
     var date = $('[name=date]').val();
     Meteor.call("addMeeting", date);
+    $('[name=date]').val('mm/dd/yyyy');
   }
 });
 
