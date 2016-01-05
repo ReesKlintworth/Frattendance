@@ -63,7 +63,7 @@ Template.roster.helpers({
 
 Template.meetingList.helpers({
   'meeting': function(){
-    return Meetings.find();
+    return Meetings.find({}, {sort: {date: 1}});
   },
 
   'formattedDate': function(){
