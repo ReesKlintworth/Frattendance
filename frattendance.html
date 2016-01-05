@@ -19,15 +19,15 @@
 </template>
 
 <template name="navigation">
-  <div class="btn-group">
-    <a href="{{pathFor route='home'}}" class="btn-menu">Home</a>
-    <a href="{{pathFor route='manage'}}" class="btn-menu">Manage</a>
+  <ul>
+    <li><a href="{{pathFor route='home'}}" class="btn-menu">Home</a></li>
+    <li><a href="{{pathFor route='manage'}}" class="btn-menu">Manage</a></li>
     {{#if currentUser}}
-      <a href="#" class="logout btn-menu">Logout</a>
+      <li><a href="#" class="logout btn-menu">Logout</a></li>
     {{else}}
-      <a href="{{pathFor route='login'}}" class="btn-menu">Login</a>
+      <li><a href="{{pathFor route='login'}}" class="btn-menu">Login</a></li>
     {{/if}}
-  </div>
+  </ul>
 </template>
 
 <template name="registerAdmin">
