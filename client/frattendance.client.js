@@ -79,3 +79,14 @@ Template.meetingList.helpers({
     return moment(this.date).format("MMMM Do, YYYY");
   }
 });
+
+Template.meeting.helpers({
+  'member': function(){
+    var members = MeetingAttendance.find({meetingId: this._id}).fetch();
+    var memberIds = [];
+    for(i = 0; i < members.length; i++) {
+      memberIds.push(members[i].memberId);
+    }
+    return Members.find({ _id: {$in: memberIds}});
+  }
+});

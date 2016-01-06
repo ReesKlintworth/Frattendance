@@ -106,4 +106,9 @@
 
 <template name="meeting">
   <p>{{_id}}</p>
+  <ul>
+  {{#each member}}
+    <li>{{first}} {{last}}</li>
+  {{/each}}
+  </ul>
 </template>

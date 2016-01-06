@@ -41,8 +41,21 @@ Meteor.methods({
   },
 
   addMeeting:function(date){
-    Meetings.insert({
+    var meetingId = Meetings.insert({
       date: moment(date).toDate()
+    });
+
+    var members = Members.find().fetch();
+    for(i = 0; i < members.length; i++) {
+      Meteor.call("addMeetingAttendance", members[i]._id, meetingId);
+    }
+  },
+
+  addMeetingAttendance:function(memberId, meetingId){
+    MeetingAttendance.insert({
+      memberId: memberId,
+      meetingId: meetingId,
+      attended: false
     });
   }
 });
