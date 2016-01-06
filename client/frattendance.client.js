@@ -88,5 +88,23 @@ Template.meeting.helpers({
       memberIds.push(members[i].memberId);
     }
     return Members.find({ _id: {$in: memberIds}});
+  },
+
+  'buttonColor': function(parentContext){
+    var attendance = MeetingAttendance.findOne({$and: [{meetingId: parentContext._id}, {memberId: this._id}]});
+    return attendance.attended ? "attended member" : "absent member";
+  },
+
+  'id': function(parentContext){
+    return parentContext._id + ":" + this._id;
+  }
+});
+
+Template.meeting.events({
+  'click .member': function(){
+    event.preventDefault();
+    var id = event.target.id;
+    var ids = id.split(":");
+    Meteor.call("toggleAttended", ids[0], ids[1]);
   }
 });
