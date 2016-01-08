@@ -16,9 +16,7 @@ Meteor.startup(function () {
     username: 'rees.klintworth',
     password: 'password',
     passwordReset: true,
-    emails: [
-      { 'address': 'reesk5150@gmail.com', 'verified': false }
-    ]
+    email: 'reesk5150@gmail.com'
   });
 }
 });
