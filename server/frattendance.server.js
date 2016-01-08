@@ -11,5 +11,13 @@ Meteor.publish("meetingAttendance", function(){
 });
 
 Meteor.startup(function () {
-  // code to run on server at startup
+  if (Meteor.users.find().count() === 0) {
+  Accounts.createUser({
+    username: 'rees.klintworth',
+    password: 'password',
+    emails: [
+      { 'address': 'reesk5150@gmail.com', 'verified': false }
+    ]
+  });
+}
 });
