@@ -11,7 +11,17 @@ Router.route('/', {
   template: 'home'
 });
 
-Router.route('/manage');
+Router.route('/manage', {
+  onBeforeAction: function(){
+    var currentUser = Meteor.userId();
+    if (currentUser) {
+      this.next();
+    }
+    else {
+      this.render('login');
+    }
+  }
+});
 
 Router.route('/login');
 
@@ -20,6 +30,15 @@ Router.route('/meeting/:_id', {
   data: function() {
     var currentMeeting = this.params._id;
     return Meetings.findOne({_id: currentMeeting});
+  },
+  onBeforeAction: function(){
+    var currentUser = Meteor.userId();
+    if (currentUser) {
+      this.next();
+    }
+    else {
+      this.render('login');
+    }
   }
 });
 

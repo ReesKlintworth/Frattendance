@@ -20,13 +20,13 @@
 
 <template name="navigation">
   <ul>
+  {{#if currentUser}}
     <li><a href="{{pathFor route='home'}}" class="btn-menu">Home</a></li>
     <li><a href="{{pathFor route='manage'}}" class="btn-menu">Manage</a></li>
-    {{#if currentUser}}
-      <li><a href="#" class="logout btn-menu">Logout</a></li>
-    {{else}}
-      <li><a href="{{pathFor route='login'}}" class="btn-menu">Login</a></li>
-    {{/if}}
+    <li><a href="#" class="logout btn-menu">Logout</a></li>
+  {{else}}
+    <li><a href="{{pathFor route='login'}}" class="btn-menu">Login</a></li>
+  {{/if}}
   </ul>
 </template>
 
@@ -97,11 +97,13 @@
 </template>
 
 <template name="meetingList">
+  {{#if currentUser}}
   <ul>
   {{#each meeting}}
     <li><a href="/meeting/{{_id}}">{{formattedDate}}</a></li>
   {{/each}}
   </ul>
+  {{/if}}
 </template>
 
 <template name="meeting">
