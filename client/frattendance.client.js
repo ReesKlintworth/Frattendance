@@ -108,3 +108,24 @@ Template.meeting.events({
     Meteor.call("toggleAttended", ids[0], ids[1]);
   }
 });
+
+Template.home.events({
+  'submit form': function(){
+    event.preventDefault();
+    var newPassword = $('[name=newPassword]').val();
+    Meteor.call("resetAdminPassword", newPassword);
+    Router.go('home');
+  }
+});
+
+Template.registerHelper("currentUserReady", function(){
+  var currentUser = Meteor.userId();
+  var userInfo = Meteor.users.findOne({_id: currentUser});
+  return currentUser && userInfo.profile.passwordReset == false;
+});
+
+Template.registerHelper("currentUserResetPassword", function(){
+  var currentUser = Meteor.userId();
+  var userInfo = Meteor.users.findOne({_id: currentUser});
+  return currentUser && userInfo.profile.passwordReset == true;
+});

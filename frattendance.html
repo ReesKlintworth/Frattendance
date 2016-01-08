@@ -20,12 +20,16 @@
 
 <template name="navigation">
   <ul>
-  {{#if currentUser}}
+  {{#if currentUserReady}}
     <li><a href="{{pathFor route='home'}}" class="btn-menu">Home</a></li>
     <li><a href="{{pathFor route='manage'}}" class="btn-menu">Manage</a></li>
     <li><a href="#" class="logout btn-menu">Logout</a></li>
   {{else}}
-    <li><a href="{{pathFor route='login'}}" class="btn-menu">Login</a></li>
+    {{#if currentUser}}
+      <li><a href="#" class="logout btn-menu">Logout</a></li>
+    {{else}}
+      <li><a href="{{pathFor route='login'}}" class="btn-menu">Login</a></li>
+    {{/if}}
   {{/if}}
   </ul>
 </template>
@@ -66,6 +70,12 @@
 <template name="home">
   <h2>Welcome Home!</h2>
   <p>You're on the home page!</p>
+  {{#if currentUserResetPassword}}
+    <form class="resetPassword">
+      <p>New password: <input type="password" name="newPassword"></p>
+      <p><input type="submit" value="Reset"></p>
+    </form>
+  {{/if}}
 </template>
 
 <template name="manage">
@@ -97,7 +107,7 @@
 </template>
 
 <template name="meetingList">
-  {{#if currentUser}}
+  {{#if currentUserReady}}
   <ul>
   {{#each meeting}}
     <li><a href="/meeting/{{_id}}">{{formattedDate}}</a></li>

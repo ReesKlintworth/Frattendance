@@ -15,8 +15,10 @@ Meteor.startup(function () {
   Accounts.createUser({
     username: 'rees.klintworth',
     password: 'password',
-    passwordReset: true,
-    email: 'reesk5150@gmail.com'
+    email: 'reesk5150@gmail.com',
+    profile: {
+      passwordReset: true
+    }
   });
 }
 });

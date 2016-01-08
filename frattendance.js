@@ -56,8 +56,16 @@ Meteor.methods({
        username: username,
        email: email,
        password: password,
-       passwordReset: true
+       profile: {
+         passwordReset: true
+       }
     });
+  },
+
+  resetAdminPassword:function(newPassword){
+    var currentUser = Meteor.userId();
+    Accounts.setPassword(currentUser, newPassword, {logout: false});
+    Meteor.users.update({_id: currentUser}, {$set: {"profile.passwordReset": false}});
   },
 
   addMeeting:function(date){
