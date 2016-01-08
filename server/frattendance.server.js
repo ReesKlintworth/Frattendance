@@ -15,6 +15,7 @@ Meteor.startup(function () {
   Accounts.createUser({
     username: 'rees.klintworth',
     password: 'password',
+    passwordReset: true,
     emails: [
       { 'address': 'reesk5150@gmail.com', 'verified': false }
     ]

@@ -36,7 +36,8 @@ Meteor.methods({
     Accounts.createUser({
        username: username,
        email: email,
-       password: password
+       password: password,
+       passwordReset: true
     });
   },
 
