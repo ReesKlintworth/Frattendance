@@ -87,6 +87,11 @@ Meteor.methods({
     });
   },
 
+  deleteMeeting:function(meetingId){
+    MeetingAttendance.remove({meetingId: meetingId});
+    Meetings.remove(meetingId);
+  },
+
   toggleAttended:function(meetingId, memberId){
     var attendance = MeetingAttendance.findOne({$and: [{meetingId: meetingId}, {memberId: memberId}]});
     MeetingAttendance.update(attendance._id, {$set: {attended: !attendance.attended}});

@@ -106,6 +106,12 @@ Template.meeting.events({
     var id = event.target.id;
     var ids = id.split(":");
     Meteor.call("toggleAttended", ids[0], ids[1]);
+  },
+
+  'click #delete': function(){
+    var id = this._id;
+    Meteor.call("deleteMeeting", id);
+    Router.go('home');
   }
 });
 
