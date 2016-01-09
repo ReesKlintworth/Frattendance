@@ -76,7 +76,7 @@ Template.meetingList.helpers({
   },
 
   'formattedDate': function(){
-    return moment(this.date).format("MMMM Do, YYYY");
+    return moment.utc(this.date).format("MMMM Do, YYYY");
   }
 });
 
