@@ -97,7 +97,20 @@ Template.meeting.helpers({
 
   'id': function(parentContext){
     return parentContext._id + ":" + this._id;
-  }
+  },
+
+  'quorumReached': function(){
+    var quorumPercent = parseFloat(Meteor.settings.public.quorumPercent);
+    var meetingAttendance = MeetingAttendance.find({meetingId: this._id}).fetch();
+    var attendingMembers = 0;
+    for (i = 0; i < meetingAttendance.length; i++) {
+      var attendance = MeetingAttendance.findOne({$and: [{meetingId: this._id}, {memberId: meetingAttendance[i].memberId}]});
+      if (attendance.attended) {
+        attendingMembers++;
+      }
+    }
+    return (attendingMembers / meetingAttendance.length) > quorumPercent;
+   }
 });
 
 Template.meeting.events({
