@@ -104,14 +104,19 @@ Template.meeting.helpers({
   'quorumReached': function(){
     var quorumPercent = parseFloat(Meteor.settings.public.quorumPercent);
     var meetingAttendance = MeetingAttendance.find({meetingId: this._id}).fetch();
-    var attendingMembers = 0;
+    var attendingActiveMembers = 0;
+    var totalActiveMembers = 0;
     for (i = 0; i < meetingAttendance.length; i++) {
       var attendance = MeetingAttendance.findOne({$and: [{meetingId: this._id}, {memberId: meetingAttendance[i].memberId}]});
-      if (attendance.attended) {
-        attendingMembers++;
+      var member = Members.findOne({_id: meetingAttendance[i].memberId});
+      if (member.active === "true") {
+        totalActiveMembers++;
+      }
+      if (attendance.attended && member.active === "true") {
+        attendingActiveMembers++;
       }
     }
-    return (attendingMembers / meetingAttendance.length) > quorumPercent;
+    return (attendingActiveMembers / totalActiveMembers) > quorumPercent;
    }
 });
 
