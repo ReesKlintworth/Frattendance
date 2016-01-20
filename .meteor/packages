@@ -20,3 +20,4 @@ accounts-password
 iron:router
 less
 momentjs:moment
+twbs:bootstrap
