@@ -80,18 +80,6 @@
     </div>
 </template>
 
-<template name="roster">
-  <ul>
-  {{#each member}}
-    {{#if isActive}}
-      <li><strong>{{first}} {{last}}</strong></li>
-    {{else}}
-      <li>{{first}} {{last}}</li>
-    {{/if}}
-  {{/each}}
-  </ul>
-</template>
-
 <template name="footer">
   <div class="footer">
     <hr/>

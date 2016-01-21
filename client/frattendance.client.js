@@ -28,16 +28,6 @@ Template.navItems.helpers({
    }
 });
 
-Template.roster.helpers({
-  'member': function(){
-    return Members.find();
-  },
-
-  'isActive': function(){
-    return this.active === "true";
-  }
-});
-
 Template.meetingList.helpers({
   'meeting': function(){
     return Meetings.find({}, {sort: {date: 1}});
