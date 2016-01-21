@@ -48,14 +48,6 @@
     </ul>
 </template>
 
-<template name="createMeeting">
-  <h2>Create a new meeting.</h2>
-  <form class="create">
-    <p>Meeting date: <input type="date" name="date"></p>
-    <p><input type="submit" value="Create"></p>
-  </form>
-</template>
-
 <template name="home">
   {{#if currentUserResetPassword}}
     <form class="resetPassword">
@@ -88,6 +80,7 @@
                     </div>
                     <div id="createMeeting" class="tab-pane fade">
                         {{> createMeeting}}
+                        <h3>Existing Meetings:</h3>
                         {{> meetingList}}
                     </div>
                 </div>
