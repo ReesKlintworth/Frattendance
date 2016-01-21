@@ -49,6 +49,13 @@ Template.main.events({
   }
 });
 
+Template.navItems.helpers({
+   activeIfTemplateIs: function(template) {
+       var currentRoute = Router.current();
+       return currentRoute && template.toLowerCase() === currentRoute.lookupTemplate().toLowerCase() ? 'active' : '';
+   }
+});
+
 Template.login.events({
   'submit form': function(){
     event.preventDefault();
