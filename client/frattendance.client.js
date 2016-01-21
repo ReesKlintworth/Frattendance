@@ -41,7 +41,7 @@ Template.createMeeting.events({
   }
 });
 
-Template.navigation.events({
+Template.main.events({
   'click .logout': function(){
     event.preventDefault();
     Meteor.logout();

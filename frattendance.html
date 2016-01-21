@@ -1,21 +1,52 @@
 <template name="main">
-  <div id="container">
-    <div id="menu">
-      {{> navigation}}
-      {{> meetingList}}
+    <nav class="navbar navbar default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="navbar-collapse-main" aria-expanded="false">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Frattendance</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse-main">
+                <ul class="nav navbar-nav">
+                    {{#if currentUserReady}}
+                        <li class="active"><a href="{{pathFor route='home'}}">Home <span class="sr-only">(current)</span></a></li>
+                        <li><a href="{{pathFor route='manage'}}" class="btn-menu">Manage</a></li>
+                        <li><a href="#" class="logout btn-menu">Logout</a></li>
+                    {{else}}
+                        {{#if currentUser}}
+                            <li><a href="#" class="logout btn-menu">Logout</a></li>
+                        {{else}}
+                            <li><a href="{{pathFor route='login'}}" class="btn-menu">Login</a></li>
+                        {{/if}}
+                    {{/if}}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-4">
+                        {{>meetingList}}
+                    </div>
+                    <div class="col-md-8">
+                        {{#if currentUser}}
+                            <p>Welcome, {{currentUser.username}}</p>
+                        {{/if}}
+                        {{>yield}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
     </div>
-    <div id="content-container">
-      {{#if currentUser}}
-        <p>Welcome, {{currentUser.username}}</p>
-      {{/if}}
-      {{> yield}}
-    </div>
-    <div id="push"></div>
-  </div>
-  <div id="footer">
-    <hr/>
-    <p> Copyright &copy; Rees Klintworth, 2016. </p>
-  </div>
 </template>
 
 <template name="navigation">
