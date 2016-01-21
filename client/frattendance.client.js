@@ -14,11 +14,10 @@ Template.registerHelper("currentUserResetPassword", function(){
   return currentUser && userInfo.profile.passwordReset == true;
 });
 
-Template.main.events({
-  'click .logout': function(){
+Template.navItems.events({
+  'click #logout': function(){
     event.preventDefault();
     Meteor.logout();
-    Router.go('home');
   }
 });
 

@@ -41,7 +41,7 @@
     <ul class="nav navbar-nav navbar-right">
     {{#if currentUser}}
         <p class="navbar-text">Signed in as {{currentUser.username}}</p>
-        <li><a href="{{pathFor route='home'}}">Logout</a></li>
+        <li><a href="{{pathFor route='home'}}" id="logout">Logout</a></li>
     {{else}}
         <li><a href="{{pathFor route='login'}}">Login</a></li>
     {{/if}}
