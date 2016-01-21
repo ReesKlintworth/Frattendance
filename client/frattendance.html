@@ -71,8 +71,6 @@
                     </div>
                     <div id="createMeeting" class="tab-pane fade">
                         {{> createMeeting}}
-                        <h3 class="text-center">Existing Meetings:</h3>
-                        {{> meetingList}}
                     </div>
                 </div>
             </div>
@@ -91,7 +89,7 @@
   {{#if currentUserReady}}
   <ul class="nav nav-pills nav-stacked red">
   {{#each meeting}}
-    <li><a href="/meeting/{{_id}}">{{formattedDate}}</a></li>
+    <li><a href="/meeting/{{_id}}" class="text-center">{{formattedDate}}</a></li>
   {{/each}}
   </ul>
   {{/if}}
