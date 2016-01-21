@@ -21,13 +21,7 @@
             <div class="col-md-2"></div>
             <div class="col-md-8">
                 <div class="row">
-                    <div class="col-md-4">
-                        {{>meetingList}}
-                    </div>
-                    <div class="col-md-8">
-                        {{#if currentUser}}
-                            <p>Welcome, {{currentUser.username}}</p>
-                        {{/if}}
+                    <div class="col-md-12">
                         {{>yield}}
                     </div>
                 </div>
@@ -88,23 +82,42 @@
 </template>
 
 <template name="home">
-  <h2>Welcome Home!</h2>
-  <p>You're on the home page!</p>
   {{#if currentUserResetPassword}}
     <form class="resetPassword">
       <p>New password: <input type="password" name="newPassword"></p>
       <p><input type="submit" value="Reset"></p>
     </form>
   {{/if}}
+  {{> meetingList}}
 </template>
 
 <template name="manage">
-  <h2>Welcome to Manage!</h2>
-  {{> registerAdmin}}
-  {{> registerMember}}
-  {{> roster}}
-  {{> createMeeting}}
-  {{> meetingList}}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <ul class="nav nav-pills nav-stacked">
+                    <li><a data-toggle="pill" href="#registerAdmin">Register Admin</a></li>
+                    <li><a data-toggle="pill" href="#registerMember">Register Member</a></li>
+                    <li><a data-toggle="pill" href="#createMeeting">Create Meeting</a></li>
+                </ul>
+            </div>
+            <div class="col-md-8">
+                <div class="tab-content">
+                    <div id="registerAdmin" class="tab-pane fade">
+                        {{> registerAdmin}}
+                    </div>
+                    <div id="registerMember" class="tab-pane fade">
+                        {{> registerMember}}
+                        {{> roster}}
+                    </div>
+                    <div id="createMeeting" class="tab-pane fade">
+                        {{> createMeeting}}
+                        {{> meetingList}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <template name="roster">
@@ -128,7 +141,7 @@
 
 <template name="meetingList">
   {{#if currentUserReady}}
-  <ul>
+  <ul class="nav nav-pills nav-stacked">
   {{#each meeting}}
     <li><a href="/meeting/{{_id}}">{{formattedDate}}</a></li>
   {{/each}}
