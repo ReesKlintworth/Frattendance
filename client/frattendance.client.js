@@ -48,12 +48,3 @@ Template.meetingList.helpers({
     return moment.utc(this.date).format("MMMM Do, YYYY");
   }
 });
-
-Template.home.events({
-  'submit form': function(){
-    event.preventDefault();
-    var newPassword = $('[name=newPassword]').val();
-    Meteor.call("resetAdminPassword", newPassword);
-    Router.go('home');
-  }
-});

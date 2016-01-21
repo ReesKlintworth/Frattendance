@@ -48,16 +48,6 @@
     </ul>
 </template>
 
-<template name="home">
-  {{#if currentUserResetPassword}}
-    <form class="resetPassword">
-      <p>New password: <input type="password" name="newPassword"></p>
-      <p><input type="submit" value="Reset"></p>
-    </form>
-  {{/if}}
-  {{> meetingList}}
-</template>
-
 <template name="manage">
     <div class="container-fluid">
         <div class="row">

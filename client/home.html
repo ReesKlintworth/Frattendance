@@ -1,0 +1,20 @@
+<template name="home">
+    <div class="container-fluid">
+        <div class="row">
+        {{#if currentUserResetPassword}}
+            <form class="resetPassword">
+                <p>New password: <input type="password" name="newPassword"></p>
+                <p><input type="submit" value="Reset"></p>
+            </form>
+        {{/if}}
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                {{> meetingList}}
+            </div>
+            <div class="col-md-8">
+                <h2>Welcome to Frattendance</h2>
+            </div>
+        </div>
+    </div>
+</template>
