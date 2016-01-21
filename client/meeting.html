@@ -1,0 +1,17 @@
+<template name="meeting">
+{{#if quorumReached}}
+    <h1>QUORUM REACHED!</h1>
+{{else}}
+    <h2>Quorum not reached</h2>
+{{/if}}
+    <div class="row">
+        <div class="btn-group-vertical" role="group">
+        {{#each member}}
+            <button id={{id ..}} class={{buttonColor ..}}>{{first}} {{last}}</button>
+        {{/each}}
+        </div>
+    </div>
+    <div class="row">
+        <button class="btn btn-default" id="delete">Delete Meeting</button>
+    </div>
+</template>

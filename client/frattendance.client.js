@@ -99,7 +99,8 @@ Template.meeting.helpers({
 
   'buttonColor': function(parentContext){
     var attendance = MeetingAttendance.findOne({$and: [{meetingId: parentContext._id}, {memberId: this._id}]});
-    var buttonClass = attendance.attended ? "attended member" : "absent member";
+    var buttonClass = "btn"
+    buttonClass = attendance.attended ? buttonClass + " btn-success" : buttonClass + " btn-danger";
     var member = Members.findOne({_id: this._id});
     return member.active === "true" ? buttonClass + " active-member" : buttonClass + " pledge-member";
   },
