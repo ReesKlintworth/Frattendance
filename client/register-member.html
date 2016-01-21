@@ -1,0 +1,19 @@
+<template name="registerMember">
+    <h2>Register a new member</h2>
+    <form class="register">
+        <div class="form-group">
+            <label for="firstMember">First name</label>
+            <input type="text" class="form-control" id="firstMember" name="firstMember" placeholder="First">
+        </div>
+        <div class="form-group">
+            <label for="lastMember">Last name</label>
+            <input type="text" class="form-control" id="lastMember" name="lastMember" placeholder="Last">
+        </div>
+        <div class="form-group">
+            <label class="radio-inline"><input type="radio" name="active" id="radio_active" value="true" checked>Active</label>
+            <label class="radio-inline"><input type="radio" name="active" id="radio_pledge" value="false">Pledge</label>
+
+        </div>
+        <button type="submit" class="btn btn-default">Register</button>
+    </form>
+</template>

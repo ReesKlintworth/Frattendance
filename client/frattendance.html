@@ -48,43 +48,6 @@
     </ul>
 </template>
 
-<template name="registerAdmin">
-  <h2>Register a new admin</h2>
-  <form class="register">
-      <div class="form-group">
-          <label for="firstAdmin">First name</label>
-          <input type="text" class="form-control" id="firstAdmin" name="firstAdmin" placeholder="First">
-      </div>
-      <div class="form-group">
-          <label for="lastAdmin">Last name</label>
-          <input type="text" class="form-control" id="lastAdmin" name="lastAdmin" placeholder="Last">
-      </div>
-      <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" class="form-control" id="email" name="email" placeholder="Email">
-      </div>
-      <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-      </div>
-      <button type="submit" class="btn btn-default">Register</button>
-  </form>
-</template>
-
-<template name="registerMember">
-  <h2>Register a new member</h2>
-  <form class="register">
-    <p>First name: <input type="text" name="firstMember"></p>
-    <p>Last name: <input type="text" name="lastMember"></p>
-    <p>
-      Active status:
-      <input type="radio" name="active" id="radio_active" value="true" checked>Active
-      <input type="radio" name="active" id="radio_pledge" value="false">Pledge
-    </p>
-    <p><input type="submit" value="Register"></p>
-  </form>
-</template>
-
 <template name="createMeeting">
   <h2>Create a new meeting.</h2>
   <form class="create">
@@ -120,6 +83,7 @@
                     </div>
                     <div id="registerMember" class="tab-pane fade">
                         {{> registerMember}}
+                        <h3>Current Roster:</h3>
                         {{> roster}}
                     </div>
                     <div id="createMeeting" class="tab-pane fade">
@@ -136,7 +100,7 @@
   <ul>
   {{#each member}}
     {{#if isActive}}
-      <li><b>{{first}} {{last}}</b></li>
+      <li><strong>{{first}} {{last}}</strong></li>
     {{else}}
       <li>{{first}} {{last}}</li>
     {{/if}}

@@ -101,7 +101,7 @@ Template.meeting.helpers({
     var attendance = MeetingAttendance.findOne({$and: [{meetingId: parentContext._id}, {memberId: this._id}]});
     var buttonClass = attendance.attended ? "attended member" : "absent member";
     var member = Members.findOne({_id: this._id});
-    return member.active === "true" ? buttonClass + " active" : buttonClass + " pledge";
+    return member.active === "true" ? buttonClass + " active-member" : buttonClass + " pledge-member";
   },
 
   'id': function(parentContext){
