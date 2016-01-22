@@ -8,9 +8,13 @@
                     <ul class="list-group">
                     {{#each member}}
                     {{#if isActive}}
-                        <li class="list-group-item"><strong>{{first}} {{last}}</strong> <button class="btn btn-danger btn-xs pull-right"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></li>
+                        <li class="list-group-item"><strong>{{first}} {{last}}</strong>
+                            <button class="btn btn-danger btn-xs pull-right"><span class="glyphicon glyphicon-trash btn-glyphicon"></span></button>
+                        </li>
                     {{else}}
-                        <li class="list-group-item">{{first}} {{last}} <button class="btn btn-danger btn-xs pull-right"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></li>
+                        <li class="list-group-item">{{first}} {{last}}
+                            <button class="btn btn-danger btn-xs pull-right"><span class="glyphicon glyphicon-trash btn-glyphicon"></span></button>
+                        </li>
                     {{/if}}
                     {{/each}}
                     </ul>
