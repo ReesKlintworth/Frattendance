@@ -9,11 +9,11 @@
                     {{#each member}}
                     {{#if isActive}}
                         <li class="list-group-item"><strong>{{first}} {{last}}</strong>
-                            <button class="btn btn-danger btn-xs pull-right"><span class="glyphicon glyphicon-trash btn-glyphicon"></span></button>
+                            <button class="btn btn-danger btn-xs pull-right delete" id={{_id}}><span class="glyphicon glyphicon-trash btn-glyphicon" id={{_id}}></span></button>
                         </li>
                     {{else}}
                         <li class="list-group-item">{{first}} {{last}}
-                            <button class="btn btn-danger btn-xs pull-right"><span class="glyphicon glyphicon-trash btn-glyphicon"></span></button>
+                            <button class="btn btn-danger btn-xs pull-right delete" id={{_id}}><span class="glyphicon glyphicon-trash btn-glyphicon" id={{_id}}></span></button>
                         </li>
                     {{/if}}
                     {{/each}}
