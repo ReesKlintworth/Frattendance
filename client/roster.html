@@ -1,19 +1,22 @@
 <template name="roster">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-4"></div>
-            <div class="col-md-4">
-                <ul class="list-unstyled">
-                {{#each member}}
-                {{#if isActive}}
-                    <li><strong>{{first}} {{last}}</strong></li>
-                {{else}}
-                    <li>{{first}} {{last}}</li>
-                {{/if}}
-                {{/each}}
-                </ul>
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Members</div>
+                    <ul class="list-group">
+                    {{#each member}}
+                    {{#if isActive}}
+                        <li class="list-group-item"><strong>{{first}} {{last}}</strong> <button class="btn btn-default btn-xs pull-right">Delete</button></li>
+                    {{else}}
+                        <li class="list-group-item">{{first}} {{last}} <button class="btn btn-default btn-xs pull-right">Delete</button></li>
+                    {{/if}}
+                    {{/each}}
+                    </ul>
+                </div>
             </div>
-            <div class="col-md-4"></div>
+            <div class="col-md-3"></div>
         </div>
     </div>
 </template>
