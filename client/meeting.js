@@ -20,7 +20,12 @@ Template.meeting.helpers({
     for(i = 0; i < members.length; i++) {
       memberIds.push(members[i].memberId);
     }
-    return Members.find({ _id: {$in: memberIds}});
+    return Members.find({ _id: {$in: memberIds}}, {
+        sort: [
+            ["active", "desc"],
+            ["last", "asc"],
+            ["first", "asc"]]
+    });
   },
 
   'buttonColor': function(parentContext){
