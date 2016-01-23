@@ -33,7 +33,7 @@ Template.meeting.helpers({
     var buttonClass = "btn member"
     buttonClass = attendance.attended ? buttonClass + " btn-success" : buttonClass + " btn-danger";
     var member = Members.findOne({_id: this._id});
-    return member.active === "true" ? buttonClass + " active-member" : buttonClass + " pledge-member";
+    return member.active ? buttonClass + " active-member" : buttonClass + " pledge-member";
   },
 
   'id': function(parentContext){
@@ -48,10 +48,10 @@ Template.meeting.helpers({
     for (i = 0; i < meetingAttendance.length; i++) {
       var attendance = MeetingAttendance.findOne({$and: [{meetingId: this._id}, {memberId: meetingAttendance[i].memberId}]});
       var member = Members.findOne({_id: meetingAttendance[i].memberId});
-      if (member.active === "true") {
+      if (member.active) {
         totalActiveMembers++;
       }
-      if (attendance.attended && member.active === "true") {
+      if (attendance.attended && member.active) {
         attendingActiveMembers++;
       }
     }

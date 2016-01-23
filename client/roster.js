@@ -14,9 +14,5 @@ Template.roster.helpers({
             ["last", "asc"],
             ["first", "asc"]]
     });
-  },
-
-  'isActive': function(){
-    return this.active === "true";
   }
 });

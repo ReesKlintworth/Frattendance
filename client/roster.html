@@ -7,7 +7,7 @@
                     <div class="panel-heading">Members</div>
                     <ul class="list-group">
                     {{#each member}}
-                    {{#if isActive}}
+                    {{#if active}}
                         <li class="list-group-item"><strong>{{first}} {{last}}</strong>
                             <button class="btn btn-danger btn-xs pull-right delete" id={{_id}}><span class="glyphicon glyphicon-trash btn-glyphicon" id={{_id}}></span></button>
                         </li>
