@@ -8,7 +8,12 @@ Template.roster.events({
 
 Template.roster.helpers({
   'member': function(){
-    return Members.find();
+    return Members.find({}, {
+        sort: [
+            ["active", "desc"],
+            ["last", "asc"],
+            ["first", "asc"]]
+    });
   },
 
   'isActive': function(){
