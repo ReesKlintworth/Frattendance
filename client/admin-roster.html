@@ -1,0 +1,19 @@
+<template name="adminRoster">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Admins</div>
+                    <ul class="list-group">
+                    {{#each admin}}
+                        <li class="list-group-item">{{username}}
+                        </li>
+                    {{/each}}
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+</template>

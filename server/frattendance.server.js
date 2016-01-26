@@ -10,6 +10,10 @@ Meteor.publish("meetingAttendance", function(){
   return MeetingAttendance.find();
 });
 
+Meteor.publish("users", function(){
+   return Meteor.users.find();
+});
+
 Meteor.startup(function () {
   if (Meteor.users.find().count() === 0) {
   Accounts.createUser({

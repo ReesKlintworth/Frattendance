@@ -1,6 +1,7 @@
 Meteor.subscribe("members");
 Meteor.subscribe("meetings");
 Meteor.subscribe("meetingAttendance");
+Meteor.subscribe("users");
 
 Template.registerHelper("currentUserReady", function(){
   var currentUser = Meteor.userId();
