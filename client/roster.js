@@ -7,10 +7,17 @@ Template.roster.events({
 });
 
 Template.roster.helpers({
-  'member': function(){
-    return Members.find({}, {
+  'active': function(){
+    return Members.find({active: true}, {
         sort: [
-            ["active", "desc"],
+            ["last", "asc"],
+            ["first", "asc"]]
+    });
+  },
+  
+  'pledge': function(){
+    return Members.find({active: false}, {
+        sort: [
             ["last", "asc"],
             ["first", "asc"]]
     });
