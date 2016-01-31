@@ -5,7 +5,7 @@ Template.registerMember.events({
     var last = $('[name=lastMember]').val();
     var activeString = $('[name=active]:checked').val();
     var active = activeString === "true" ? true : false
-    var previous = $('[name=previous]').val() === "on" ? true : false;
+    var previous = $('[name=previous]').is(":checked");
     Meteor.call("addMember", first, last, active, previous);
     $('[name=firstMember]').val('');
     $('[name=lastMember]').val('');
