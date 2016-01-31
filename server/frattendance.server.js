@@ -28,12 +28,19 @@ Meteor.startup(function () {
 });
 
 Meteor.methods({
-  addMember:function(first, last, active){
-    Members.insert({
+  addMember:function(first, last, active, previous){
+    var memberId = Members.insert({
       first: first,
       last: last,
       active: active
     });
+
+    if (previous) {
+        var meetings = Meetings.find().fetch();
+        for(i = 0; i < meetings.length; i++) {
+            Meteor.call("addMeetingAttendance", memberId, meetings[i]._id);
+        }
+    }
   },
 
   addUser:function(username, email, password){
