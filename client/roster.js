@@ -3,6 +3,12 @@ Template.roster.events({
     event.preventDefault();
     var id = event.target.id;
     Meteor.call("deleteMember", id);
+  },
+  
+  'click .member': function(){
+      event.preventDefault();
+      var id = event.target.id;
+      Meteor.call("toggleActive", id);
   }
 });
 
