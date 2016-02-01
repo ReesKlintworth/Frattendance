@@ -72,10 +72,12 @@ Meteor.methods({
   },
 
   addMeetingAttendance:function(memberId, meetingId){
+    var member = Members.findOne({_id: memberId});
     MeetingAttendance.insert({
       memberId: memberId,
       meetingId: meetingId,
-      attended: false
+      attended: false,
+      active: member.active
     });
   },
 
@@ -92,5 +94,13 @@ Meteor.methods({
   deleteMember:function(id){
       MeetingAttendance.remove({memberId: id});
       Members.remove(id);
+  },
+
+  updateDatabase:function(){
+    var attendanceList = MeetingAttendance.find().fetch();
+    for (i = 0; i < attendanceList.length; i++) {
+        var member = Members.findOne({_id: attendanceList[i].memberId});
+        MeetingAttendance.update(attendanceList[i]._id, {$set: {active: member.active}});
+    }
   }
 });

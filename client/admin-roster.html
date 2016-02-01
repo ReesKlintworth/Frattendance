@@ -7,8 +7,7 @@
                     <div class="panel-heading">Admins</div>
                     <ul class="list-group">
                     {{#each admin}}
-                        <li class="list-group-item">{{username}}
-                        </li>
+                        <li class="list-group-item"><a href="/admin/{{_id}}">{{username}}</a></li>
                     {{/each}}
                     </ul>
                 </div>

@@ -41,3 +41,7 @@ Router.route('/meeting/:_id', {
     }
   }
 });
+
+Router.route('/admin/:_id', {
+   template: 'admin'
+});
