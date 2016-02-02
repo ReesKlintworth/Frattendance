@@ -97,11 +97,6 @@ Meteor.methods({
   },
 
   updateDatabase:function(){
-    var attendanceList = MeetingAttendance.find().fetch();
-    for (i = 0; i < attendanceList.length; i++) {
-        var member = Members.findOne({_id: attendanceList[i].memberId});
-        MeetingAttendance.update(attendanceList[i]._id, {$set: {active: member.active}});
-    }
   },
 
   toggleActive:function(memberId){
