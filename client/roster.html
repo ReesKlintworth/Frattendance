@@ -7,7 +7,7 @@
                     <div class="panel-heading">Actives</div>
                     <ul class="list-group">
                     {{#each active}}
-                        <li class="list-group-item"><strong>{{first}} {{last}}</strong>
+                        <li class="list-group-item btn member" id={{_id}}><strong>{{first}} {{last}}</strong>
                             <button class="btn btn-danger btn-xs pull-right delete" id={{_id}}><span class="glyphicon glyphicon-trash btn-glyphicon" id={{_id}}></span></button>
                         </li>
                     {{/each}}
@@ -15,7 +15,7 @@
                     <div class="panel-heading">Pledges</div>
                     <ul class="list-group">
                     {{#each pledge}}
-                        <li class="list-group-item">{{first}} {{last}}
+                        <li class="list-group-item btn member" id={{_id}}>{{first}} {{last}}
                             <button class="btn btn-danger btn-xs pull-right delete" id={{_id}}><span class="glyphicon glyphicon-trash btn-glyphicon" id={{_id}}></span></button>
                         </li>
                     {{/each}}
